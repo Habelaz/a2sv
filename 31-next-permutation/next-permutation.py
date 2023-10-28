@@ -1,14 +1,12 @@
 class Solution:
-    def nextPermutation(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
-        i=len(nums) - 2
-        while i >= 0 and nums[i] >= nums[i+1]:
-            i -= 1
-        if i >= 0:
-            j= len(nums) - 1
-            while j>= 0 and nums[i] >= nums[j]:
-                j -= 1
-            nums[i],nums[j]=nums[j],nums[i]
-        nums[i+1:]=reversed(nums[i+1:])
+    def nextPermutation(self, arr: List[int]) -> None:
+        bPoint, n = -1, len(arr)
+        for i in range(n-2,-1,-1):
+            if arr[i] >= arr[i+1]: continue   
+            bPoint = i          
+            for j in range(n-1,i,-1):    
+                if arr[j] > arr[bPoint]:       
+                    arr[j], arr[bPoint] = arr[bPoint], arr[j] # Swap it
+                    break     
+            break   
+        arr[bPoint+1:] = reversed(arr[bPoint+1:])   
