@@ -3,7 +3,20 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        n = len(nums)
+        k = k % n  # To handle cases where k > n
+
+        def reverse(nums, start, end):
+            while start < end:
+                nums[start], nums[end] = nums[end], nums[start]
+                start += 1
+                end -= 1
         
-        for i in range(k):
-            x = nums.pop()
-            nums.insert(0,x)
+        # Reverse all the elements in the array
+        reverse(nums, 0, n - 1)
+        # Reverse the first k elements
+        reverse(nums, 0, k - 1)
+        # Reverse the remaining elements
+        reverse(nums, k, n - 1)
+        
+    
