@@ -3,16 +3,16 @@ class Solution:
         n = len(s)
         maxLength = 0
         charSet = set()
-        left = 0
+        l = 0
         
-        for right in range(n):
-            if s[right] not in charSet:
-                charSet.add(s[right])
-                maxLength = max(maxLength, right - left + 1)
+        for r in range(n):
+            if s[r] not in charSet:
+                charSet.add(s[r])
+                maxLength = max(maxLength,r-l+1)
             else:
-                while s[right] in charSet:
-                    charSet.remove(s[left])
-                    left += 1
-                charSet.add(s[right])
-        
+                while s[r] in charSet:
+                    charSet.remove(s[l])
+                    l += 1
+                charSet.add(s[r])
         return maxLength
+        
