@@ -1,20 +1,14 @@
 class Solution:
     def dividePlayers(self, skill: List[int]) -> int:
         skill.sort()
-        i = 0
-        n = len(skill)
-        j = n - 1
-        target = skill[i] + skill[j]
-
-        chem = []
-        while i < j:
-            if skill[i] + skill[j] == target:
-                chem.append(skill[i] * skill[j])
-                i += 1
-                j -= 1
-            elif skill[i] + skill[j] < target or skill[i] + skill[j] > target:
-                return -1  # Total skill of teams cannot be equal
-            else:
-                j -= 1
-        
-        return sum(chem)
+        l,r = 0 ,len(skill) - 1
+        target= skill[l]+skill[r]
+        ans=[]
+        while l < r:
+            if skill[l]+skill[r] == target:
+                ans.append(skill[l]*skill[r])
+            elif skill[l]+skill[r] > target or skill[l]+skill[r] < target:
+                return -1
+            l += 1
+            r -= 1
+        return sum(ans)
