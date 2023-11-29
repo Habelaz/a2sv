@@ -3,8 +3,8 @@ class Solution:
         
         x=num//3
         # for i in range(3):
-        # total = x + x - 1 + x + 1
-        if x + x - 1 + x + 1 == num:
+        total = x + x - 1 + x + 1
+        if total == num:
             return [x-1,x,x+1]
         else:
             return []
