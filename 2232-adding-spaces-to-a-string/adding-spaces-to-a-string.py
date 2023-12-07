@@ -5,5 +5,5 @@ class Solution:
         for i in spaces:
             arr.append(s[prev:i])
             prev=i
-        arr.append(s[i:])
+        arr.append(s[prev:])
         return " ".join(arr)
