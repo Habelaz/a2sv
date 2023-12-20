@@ -1,10 +1,13 @@
 class Solution:
     def plusOne(self, digits: List[int]) -> List[int]:
-        concat = ''.join(map(str, digits))
-        concat=int(concat)
-        concat += 1
+        # num = ''.join(map(str, digits))
+        num = ''
+        for i in digits:
+            num += str(i)
+        num=int(num)
+        num += 1
         ans=[]
-        for i in str(concat):
+        for i in str(num):
             ans.append(int(i))
 
         return ans
