@@ -1,23 +1,21 @@
 class Solution:
     def maxScoreIndices(self, nums: List[int]) -> List[int]:
-        max_score = 0
-        max_indices = []
-        count_zeroes = 0
-        count_ones = nums.count(1)
-        
-        for i in range(len(nums) + 1):
-            score = count_zeroes + (count_ones if i < len(nums) else 0)
-            if score > max_score:
-                max_score = score
-                max_indices = [i]
-            elif score == max_score:
-                max_indices.append(i)
+        summ = sum(nums)
+        leftSum = 0
+        rightSum = summ
+        maxx = summ
+        indices = [0]
+        for i in range(len(nums)):
+            if nums[i] == 0:
+                leftSum += 1
+            else:
+                rightSum -= 1
+            score = leftSum + rightSum
+            if score == maxx:
+                indices.append(i+1)
+                continue
+            elif score > maxx:
+                maxx = score
+                indices = [i+1]
+        return indices
             
-            
-            if i < len(nums) and nums[i] == 0:
-                count_zeroes += 1
-            
-            if i < len(nums) and nums[i] == 1:
-                count_ones -= 1
-        
-        return max_indices
