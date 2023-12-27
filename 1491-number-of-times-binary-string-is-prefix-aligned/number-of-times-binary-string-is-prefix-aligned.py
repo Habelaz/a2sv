@@ -4,7 +4,9 @@ class Solution:
         count = 0
 
         for i in range(len(flips)):
-            maxx = max(maxx,flips[i])
+            # maxx = max(maxx,flips[i])
+            if maxx < flips[i]:
+                maxx = flips[i]
             if maxx == i+1:
                 count += 1
         return count
