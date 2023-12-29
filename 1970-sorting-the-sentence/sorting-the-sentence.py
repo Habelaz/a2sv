@@ -1,6 +1,6 @@
 class Solution:
     def sortSentence(self, s: str) -> str:
-        s = list(s.split())
+        s = s.split()
         ans = [None]*len(s)
         for i in s:
             curr = int(i[-1])
