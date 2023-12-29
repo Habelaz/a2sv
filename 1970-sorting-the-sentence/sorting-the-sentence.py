@@ -3,7 +3,7 @@ class Solution:
         s = s.split()
         ans = [None]*len(s)
         for i in s:
-            curr = int(i[-1])
-            ans[curr - 1] = i[:-1]
+            # curr = int(i[-1])
+            ans[int(i[-1]) - 1] = i[:-1]
             # print(ans)
         return ' '.join(ans)
