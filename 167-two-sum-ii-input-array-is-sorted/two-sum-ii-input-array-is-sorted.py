@@ -6,9 +6,7 @@ class Solution:
 
         while l < r:
             if numbers[l] + numbers[r] == target:
-                index = [l+1,r+1]
-                # return index
-                break
+                return [l+1,r+1]
             elif numbers[l] + numbers[r] < target:
                 l += 1
             else:
