@@ -7,6 +7,5 @@ class Solution:
         for r in  range(len(nums)):
             if nums[l] != nums[r]:
                 l += 1
-            # else:
                 nums[l] = nums[r]
         return l + 1
