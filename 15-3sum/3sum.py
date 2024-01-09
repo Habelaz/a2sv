@@ -1,36 +1,26 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        nums.sort()  # Sorting the array to make the two-pointer approach work
-
-        triplets = []
-        n = len(nums)
-
-        for i in range(n - 2):
-            # Check for duplicates
-            if i > 0 and nums[i] == nums[i - 1]:
+        nums.sort()
+        result = []  # Use a set to store unique triplets
+        
+        for i in range(len(nums)):
+            if i > 0 and nums[i-1] == nums[i]:
                 continue
-
-            left = i + 1
-            right = n - 1
-
-            while left < right:
-                total = nums[i] + nums[left] + nums[right]
-
-                if total == 0:
-                    triplets.append([nums[i], nums[left], nums[right]])
-
-                    # Check for duplicates
-                    while left < right and nums[left] == nums[left + 1]:
-                        left += 1
-                    while left < right and nums[right] == nums[right - 1]:
-                        right -= 1
-
-                    left += 1
-                    right -= 1
-
-                elif total < 0:
-                    left += 1
+            
+            j = i + 1
+            k = len(nums) - 1
+            
+            while j < k:
+                s = nums[i] + nums[j] + nums[k]
+                
+                if s > 0:
+                    k -= 1
+                elif s < 0:
+                    j += 1
                 else:
-                    right -= 1
-
-        return triplets
+                    result.append((nums[i], nums[j], nums[k]))
+                    j += 1
+                    while j < k and nums[j-1] == nums[j]:
+                        j += 1
+                        
+        return result
