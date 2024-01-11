@@ -6,7 +6,8 @@ class Solution:
         for r in range(len(cards)):
 
             while cards[r] in ans:
-                min_l = min(min_l,r-l+1)
+                if r-l+1 < min_l:
+                    min_l = r-l+1
                 ans.remove(cards[l])
                 l += 1
             ans.add(cards[r])
