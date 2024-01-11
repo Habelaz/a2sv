@@ -12,5 +12,7 @@ class Solution:
                 l += 1
             ans.add(nums[r])
             summ += nums[r]
-            max_s = max(max_s,summ)
+            # max_s = max(max_s,summ)
+            if summ > max_s:
+                max_s = summ
         return max_s
