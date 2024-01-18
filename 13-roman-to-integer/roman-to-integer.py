@@ -1,9 +1,7 @@
 class Solution:
     def romanToInt(self, s: str) -> int:
         roman_dict = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        myList=[]
-        for c in s:
-            myList.append(c)
+        myList=[char for char in s]
         myList.reverse()
         total=0
         pre=0
