@@ -1,5 +1,5 @@
 class Solution:
     def lengthOfLastWord(self, s: str) -> int:
-        newl=s.split()
+        # newl=s.split()
         
-        return len(newl[-1])
+        return len(s.split()[-1])
