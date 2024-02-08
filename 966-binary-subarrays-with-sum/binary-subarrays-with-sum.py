@@ -1,16 +1,14 @@
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        nums += [0]
-        mapp = defaultdict(int)
-        pref = [0] * (len(nums))
+        pref = {0:1}
+        curr_sum = 0
         ans = 0
-        acc = 0
-        for i in range(len(nums)):
-            pref[i] = acc
-            acc += nums[i]
 
-            if (pref[i]- goal) in mapp:
-                ans += mapp[pref[i]-goal]
-            mapp[pref[i]] += 1
-        
+        for i in range(len(nums)):
+            curr_sum += nums[i]
+            diff = curr_sum - goal
+
+            ans += pref.get(diff,0)
+            pref[curr_sum] = pref.get(curr_sum,0)+1
+            # print(diff,pref)
         return ans
