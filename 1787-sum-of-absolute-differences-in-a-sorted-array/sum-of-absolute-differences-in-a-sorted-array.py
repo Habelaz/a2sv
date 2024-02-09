@@ -12,8 +12,8 @@ class Solution:
         for i in range(len(nums)-1,-1,-1):
             suff[i] = acc
             acc += nums[i]
-        
+        ans = []
         for i in range(len(nums)):
-            nums[i] = (nums[i]*i - pref[i]) + suff[i] - (nums[i]*(len(nums)-i-1))
-        
-        return nums
+            x = (nums[i]*i - pref[i]) + suff[i] - (nums[i]*(len(nums)-i-1))
+            ans.append(x)
+        return ans
