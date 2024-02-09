@@ -1,10 +1,10 @@
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
         sh =[0] * (len(s)+1)
-        for i in range(len(shifts)):
-            di = shifts[i][2]
-            a = shifts[i][0]
-            b = shifts[i][1]
+        for a,b,di in shifts:
+            # di = shifts[i][2]
+            # a = shifts[i][0]
+            # b = shifts[i][1]
             if di == 0:
                 sh[a] -= 1
                 sh[b+1] += 1
