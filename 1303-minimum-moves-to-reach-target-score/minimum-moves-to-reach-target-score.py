@@ -7,7 +7,7 @@ class Solution:
             elif maxDoubles:
                 target /= 2
                 maxDoubles -= 1
-            elif maxDoubles == 0:
+            else:
                 count += int((target - 1))
                 break                             
             count += 1
