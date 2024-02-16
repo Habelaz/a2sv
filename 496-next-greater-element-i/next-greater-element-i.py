@@ -8,8 +8,8 @@ class Solution:
                 x = stack.pop()
                 mapp[x] = n
             stack.append(n) 
-        ans = []
-        for i in nums1:
-            ans.append(mapp[i])
-        return ans
-        # return [mapp[val] for val in nums1]
+        # ans = []
+        # for i in nums1:
+        #     ans.append(mapp[i])
+        # return ans
+        return [mapp[val] for val in nums1]
