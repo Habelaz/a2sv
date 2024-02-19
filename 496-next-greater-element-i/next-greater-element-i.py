@@ -7,9 +7,6 @@ class Solution:
             while stack and stack[-1] < n:
                 x = stack.pop()
                 mapp[x] = n
-            stack.append(n) 
-        # ans = []
-        # for i in nums1:
-        #     ans.append(mapp[i])
-        # return ans
-        return [mapp[val] for val in nums1]
+            stack.append(n)
+        
+        return [mapp[val] for val in nums1 ]
