@@ -12,6 +12,6 @@ class Solution:
                 if i == k and tickets[k] == 0:
                     return sec
         
-        # return 0
+        
             
             
