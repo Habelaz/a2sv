@@ -10,11 +10,11 @@ class Solution:
                     substr = stack.pop() + substr
                 stack.pop()
 
-                k = ''
+                n = ''
                 while stack and stack[-1].isdigit():
-                    k = stack.pop() + k
+                    n = stack.pop() + n
 
-                stack.append(int(k) * substr)
+                stack.append(int(n) * substr)
 
         return ''.join(stack)
             
