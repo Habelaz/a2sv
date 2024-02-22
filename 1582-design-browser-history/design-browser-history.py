@@ -9,13 +9,13 @@ class BrowserHistory:
         self.forwardd = []
 
     def back(self, steps: int) -> str:
-        while steps > 0 and len(self.stack)>1:
+        while steps and len(self.stack)>1:
             self.forwardd.append(self.stack.pop())
             steps -=1
         return self.stack[-1] 
 
     def forward(self, steps: int) -> str:
-        while steps > 0 and len(self.forwardd) >0 :
+        while steps and len(self.forwardd) >0 :
             self.stack.append(self.forwardd.pop())
             steps -=1
         return self.stack[-1]
