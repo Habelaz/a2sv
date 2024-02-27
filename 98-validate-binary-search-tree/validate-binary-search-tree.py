@@ -14,9 +14,8 @@ class Solution:
                 return False
 
             return valid(root.left,left,root.val) and valid(root.right,root.val,right)
-        left = float('-inf')
-        right = float('inf')
-        return valid(root,left,right)
+        
+        return valid(root,float('-inf'),float('inf'))
             
 
         
