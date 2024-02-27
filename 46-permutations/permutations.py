@@ -5,7 +5,7 @@ class Solution:
         def permute(n):
 
             if len(nums) == len(path):
-                ans.append(path.copy())
+                ans.append(path[:])
                 return
 
             for i in range(len(nums)):
