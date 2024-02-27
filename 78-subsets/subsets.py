@@ -6,6 +6,8 @@ class Solution:
 
             if i <= len(nums):
                 ans.append(subset.copy())
+            else:
+                return
                 
             for i in range(i, len(nums)):
                 
