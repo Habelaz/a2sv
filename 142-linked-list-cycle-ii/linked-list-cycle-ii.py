@@ -10,8 +10,10 @@ class Solution:
         check = set()
 
         while curr:
-            if curr in check:
+            if curr not in check:
+                
+                check.add(curr)
+                curr = curr.next
+            else:
                 return curr
-            check.add(curr)
-            curr = curr.next
-        
+            
