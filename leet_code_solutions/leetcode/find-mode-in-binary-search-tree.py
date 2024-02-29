@@ -16,9 +16,7 @@ class Solution:
             traverse(root.right)
         traverse(root)
         ans = []
-        vals = [val for key,val in mapp.items()]
-        print(vals)
-        maxx = max(vals)
+        maxx = max(mapp.values())
         # print(maxVal)
         for key,val in mapp.items():
             if val == maxx:
