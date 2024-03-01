@@ -9,12 +9,13 @@ class Solution:
         ans = 0
         summ = []
         def traverse(root,num):
-            
+            nonlocal ans
             if not root:
                 return
             if not root.left and not root.right:
                 num += str(root.val)
-                summ.append(num)
+                ans += int(num)
+                # summ.append(num)
                 # num = ''
                 # print(ans,num)
             else:
@@ -24,6 +25,6 @@ class Solution:
                 traverse(root.right,num)
         traverse(root,'')
         
-        for num in summ:
-            ans += int(num)
+        # for num in summ:
+        #     ans += int(num)
         return ans
