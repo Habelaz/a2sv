@@ -7,8 +7,6 @@
 class Solution:
     def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
         
-        left = 0
-        right = len(nums) - 1
         def sortt(nums):
             if not len(nums):
                 return None
