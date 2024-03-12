@@ -12,12 +12,11 @@ class Solution:
             if not root2:
                 return root1
             
-            root = TreeNode()
-            root.val = root1.val + root2.val
+            root1.val += root2.val
 
-            root.left = merge(root1.left,root2.left)
-            root.right = merge(root1.right,root2.right)
+            root1.left = merge(root1.left,root2.left)
+            root1.right = merge(root1.right,root2.right)
 
-            return root
+            return root1
         return merge(root1,root2)
 
