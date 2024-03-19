@@ -15,9 +15,9 @@ class Solution:
                 else:
                     low = mid + 1
             return starts[nums[low % len(nums)][0]] if nums[low % len(nums)][0] >= target else -1
-            
+
         ans = []
-        for i,interval in enumerate(intervals):
+        for interval in intervals:
             ans.append(fun(interval))
         return ans
         
