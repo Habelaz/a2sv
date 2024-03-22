@@ -6,11 +6,8 @@ class Solution:
             if nums[i] > 0 and nums[i] < len(nums):
                 
                 pos = nums[i] - 1
-                if pos != i:
-                    if nums[i] != nums[pos]:
-                        nums[pos],nums[i] = nums[i],nums[pos]
-                    else:
-                        i += 1
+                if pos != i and nums[i] != nums[pos]:
+                    nums[pos],nums[i] = nums[i],nums[pos]
                 else:
                     i += 1
             else:
