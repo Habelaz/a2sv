@@ -16,12 +16,12 @@ class Solution:
             directions = [[1,0], [0,1], [-1, 0], [0,-1]]
 
             count = 0
-            for ci, cj in directions:
-                new_r = r + ci
-                new_c = c + cj
-                count += dfs(new_r, new_c)
-            return count
-            # return dfs(r,c+1) + dfs(r,c-1) + dfs(r-1,c) + dfs(r+1,c)
+            # for ci, cj in directions:
+            #     new_r = r + ci
+            #     new_c = c + cj
+            #     count += dfs(new_r, new_c)
+            # return count
+            return dfs(r,c+1) + dfs(r,c-1) + dfs(r-1,c) + dfs(r+1,c)
 
 
         for i in range(len(grid)):
