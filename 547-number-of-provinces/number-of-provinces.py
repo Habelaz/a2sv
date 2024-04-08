@@ -12,7 +12,7 @@ class Solution:
         count = 0
         for i in range(n):
             if not visited[i]:
-                visited[i] = True
+                # visited[i] = True
                 count += 1
                 dfs(i)
 
