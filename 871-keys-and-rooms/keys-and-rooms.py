@@ -11,8 +11,9 @@ class Solution:
                 if not visited[k]:
                     visited[k] = True
                     q.append(k)
-        visited = set(visited)
-        return not(False in visited)
+        # visited = set(visited)
+        # return not(False in visited)
+        return all(visited)
         
 
 
