@@ -6,5 +6,5 @@ class Solution:
             n = -heappop(piles)
             rem = n - n //2
             heappush(piles,-rem)
-        print(piles)
+        # print(piles)
         return -sum(piles)
