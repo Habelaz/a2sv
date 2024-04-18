@@ -1,11 +1,12 @@
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        count = Counter(nums)
-        # print(count)
-        count_sorted = dict(sorted(count.items(), key=lambda d: d[1],reverse = True))
-        # print(count_sorted)
+        freq = collections.Counter(nums)
+        heap = []
+
+        for key,val in freq.items():
+            heap.append((val,key))
+        sorted_freq = nlargest(k,heap)
         ans = []
-        for a,b in count_sorted.items():
-            ans.append(a)
-            if len(ans) == k:
-                return ans
+        for val,key in sorted_freq:
+            ans.append(key)
+        return ans
