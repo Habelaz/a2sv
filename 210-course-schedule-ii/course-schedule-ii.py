@@ -12,14 +12,14 @@ class Solution:
                 q.append(c)
         order = []
         while q:
-            for i in range(len(q)):
-                node = q.popleft()
-                order.append(node)
-                for nbr in graph[node]:
-                    incoming[nbr] -= 1
+        
+            node = q.popleft()
+            order.append(node)
+            for nbr in graph[node]:
+                incoming[nbr] -= 1
 
-                    if incoming[nbr] == 0:
-                        q.append(nbr)
+                if incoming[nbr] == 0:
+                    q.append(nbr)
         if len(order) != numCourses:
             return []
 
