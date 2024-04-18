@@ -4,7 +4,7 @@ class Solution:
         heap = []
 
         for key,val in freq.items():
-            heap.append((val,key))
+            heappush(heap,(val,key))
         sorted_freq = nlargest(k,heap)
         ans = []
         for val,key in sorted_freq:
