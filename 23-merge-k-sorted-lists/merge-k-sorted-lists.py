@@ -10,7 +10,7 @@ class Solution:
         for i, li in enumerate(lists):
             if li: 
                 heappush(heap, (li.val, i, li))
-        print(heap)
+        # print(heap)
         cur = dummy
         while heap:
             ntn, i, li = heappop(heap)
