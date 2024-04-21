@@ -14,14 +14,15 @@ class Solution:
 
         ans = []
         while q:
-            node = q.popleft()
-            ans.append(node)
+            for i in range(len(q)):
+                node = q.popleft()
+                ans.append(node)
 
-            for nbr in graph_n[node]:
-                incoming[nbr] -= 1
+                for nbr in graph_n[node]:
+                    incoming[nbr] -= 1
 
-                if incoming[nbr] == 0:
-                    q.append(nbr)
+                    if incoming[nbr] == 0:
+                        q.append(nbr)
         
         return sorted(ans)
 
