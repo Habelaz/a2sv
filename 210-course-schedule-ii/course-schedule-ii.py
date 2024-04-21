@@ -1,28 +1,35 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        graph = [[] for _ in range(numCourses)]
-        incoming = [0 for _ in range(numCourses)]
+        graph = [[] for i in range(numCourses)]
+        colors = [0 for i in range(numCourses)]
 
         for course,pre in prerequisites:
             graph[pre].append(course)
-            incoming[course] += 1
-        q = deque()
-        for c,inc in enumerate(incoming):
-            if inc == 0:
-                q.append(c)
+
         order = []
-        while q:
-        
-            node = q.popleft()
-            order.append(node)
+        def dfs(node):
+            if colors[node] == 1:
+                return False
+            
+            colors[node] = 1
             for nbr in graph[node]:
-                incoming[nbr] -= 1
+                if colors[nbr] == 2:
+                    continue
+                found = dfs(nbr)
+                if not found:
+                    return False
 
-                if incoming[nbr] == 0:
-                    q.append(nbr)
-        if len(order) != numCourses:
-            return []
+            colors[node] = 2
+            order.append(node)
+            return True
+        for i in range(numCourses):
+            if colors[i] != 0:
+                continue
+            
+            if not dfs(i):
+                return []
+        return reversed(order)
 
-        return order
+        
 
         
