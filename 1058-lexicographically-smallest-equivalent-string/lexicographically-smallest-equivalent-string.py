@@ -19,6 +19,7 @@ class Solution:
 
         ans = ''
         for c in baseStr:
+            # print(parent[c],find(c))
             ans += find(c)
 
         return ans
