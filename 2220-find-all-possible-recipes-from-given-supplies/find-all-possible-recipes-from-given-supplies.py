@@ -12,11 +12,12 @@ class Solution:
         ans = []
 
         while q:
-            node = q.popleft()
-            for nbr in graph[node]:
-                incoming[nbr] -= 1
-                if incoming[nbr] == 0:
-                    q.append(nbr)
-                    ans.append(nbr)
+            for i in range(len(q)):
+                node = q.popleft()
+                for nbr in graph[node]:
+                    incoming[nbr] -= 1
+                    if incoming[nbr] == 0:
+                        q.append(nbr)
+                        ans.append(nbr)
 
         return ans
