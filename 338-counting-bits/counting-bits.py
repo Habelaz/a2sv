@@ -7,7 +7,7 @@ class Solution:
             while i > 0:
                 if i & 1 == 1:
                     count += 1
-                i >>=1
+                i >>= 1
             ans.append(count)
 
         return ans
