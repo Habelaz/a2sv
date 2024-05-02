@@ -7,12 +7,6 @@ class Solution:
             graph[u].append(v)
             incoming[v] += 1
 
-        ans = []
-        for i,inc in enumerate(incoming):
-            if inc == 0:
-                ans.append(i)
+        ans = [i for i,inc in enumerate(incoming) if inc == 0]
         
-        if len(ans) > 1:
-            return -1
-        else:
-            return ans[0]
+        return ans[0] if len(ans) == 1 else -1
