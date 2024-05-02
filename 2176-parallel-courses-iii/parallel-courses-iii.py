@@ -15,14 +15,13 @@ class Solution:
         ans = 0
         while q:
             
-            for i in range(len(q)):
-                cur_time,node = heappop(q)
-                ans = max(ans,cur_time)
-                for nbr in graph[node]:
-                    incoming[nbr] -= 1
+            cur_time,node = heappop(q)
+            ans = max(ans,cur_time)
+            for nbr in graph[node]:
+                incoming[nbr] -= 1
 
-                    if incoming[nbr] == 0:
-                        heappush(q,(cur_time + time[nbr-1],nbr))
+                if incoming[nbr] == 0:
+                    heappush(q,(cur_time + time[nbr-1],nbr))
 
         return ans
         
