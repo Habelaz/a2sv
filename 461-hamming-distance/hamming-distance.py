@@ -1,4 +1,4 @@
 class Solution:
     def hammingDistance(self, x: int, y: int) -> int:
-        x=bin(x^y)
-        return x.count("1")
+        x = (x ^ y)
+        return x.bit_count()
