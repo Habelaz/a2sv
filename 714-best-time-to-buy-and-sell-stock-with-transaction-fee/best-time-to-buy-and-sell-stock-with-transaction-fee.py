@@ -8,10 +8,11 @@ class Solution:
 
             if (i,buying) not in memo:
                 if buying:
-                    memo[(i,buying)] = max(dp(i+1,not buying) - prices[i],dp(i+1, buying))
+                    memo[(i,buying)] = max(dp(i+1,not buying ) - prices[i],dp(i+1,buying))
                 else:
-                    memo[(i,buying)] = max(dp(i+1,not buying) + prices[i] - fee,dp(i+1, buying))
+                    memo[(i,buying)] = max(dp(i+1,not buying ) + prices[i] - fee,dp(i+1,buying))
 
             return memo[(i,buying)]
 
-        return dp(0,True)
+        return dp(0,True) 
+               
