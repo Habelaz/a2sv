@@ -11,4 +11,5 @@ class Solution:
                 dp[i] += dp[idx]
             dp[i] = max(dp[i],dp[i+1])
 
-        return max(dp)
+        return dp[0]                   
+        
