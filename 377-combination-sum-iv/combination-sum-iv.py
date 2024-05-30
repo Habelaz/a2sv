@@ -4,7 +4,7 @@ class Solution:
         dp[0] = 1
 
         for i in range(1,target+1):
-            for j,n in enumerate(nums):
+            for n in nums:
                 if i >= n:
                     dp[i] += dp[i-n]
 
