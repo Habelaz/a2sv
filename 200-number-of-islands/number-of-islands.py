@@ -1,29 +1,32 @@
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
-        # visited =[[false for i in range(len(grid))] for j in range(len(grid[0]))]
-        visited = set()
-        directions = [(1,0),(0,1),(-1,0),(0,-1)]
-
-        def inbound(r,c):
-            return 0 <= r < len(grid) and 0 <= c < len(grid[0])
-
-        def dfs(r,c):
-            if grid[r][c] == '0':
-                return
-            for rc,cc in directions:
-                nr = r + rc
-                nc = c + cc
+        
+        def inbound(i,j):
+            return 0 <= i < len(grid) and 0 <= j < len(grid[0])
+        directions = [[1,0],[0,1],[-1,0],[0,-1]]
+        def dfs(i,j):
+            stack = [(i, j)]
+    
+            while stack:
+                ci, cj = stack.pop()
                 
-                if inbound(nr,nc) and (nr,nc) not in visited:
-                    visited.add((nr,nc))
-                    dfs(nr,nc)
+                if grid[ci][cj] == '0':
+                    continue
+
+                grid[ci][cj] = '0'
+                
+                for rc, cc in directions:
+                    nr = ci + rc
+                    nc = cj + cc
+                    if inbound(nr, nc) and grid[nr][nc] == '1':
+                        stack.append((nr, nc))
             return
+        
         count = 0
         for i in range(len(grid)):
             for j in range(len(grid[0])):
-                
-                if grid[i][j] == '1' and (i,j) not in visited:
-                    # print(1)
+                if grid[i][j] == '1':
                     dfs(i,j)
                     count += 1
+
         return count
