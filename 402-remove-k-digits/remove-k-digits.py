@@ -4,7 +4,7 @@ class Solution:
         count = 0
         
         for n in num:
-            while stack and int(stack[-1]) > int(n) and count < k:
+            while count < k and stack and int(stack[-1]) > int(n) :
                 stack.pop()
                 count += 1
             stack.append(n)
