@@ -6,30 +6,16 @@
 #         self.right = right
 class Solution:
     def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
-        x = root.val
-        que = deque([root])
-        # visited = set(root.val)
-        # li = []
+        traverse = []
+        q = deque([root])
 
-        
-        while que:
-            node = que.popleft()
-            # li.append(value)
-            if node.val != x:
-                return False
-            if node.left:
-                que.append(node.left)
+        while q:
+            node = q.popleft()
+            traverse.append(node.val)
+
             if node.right:
-                que.append(node.right)
-
-        return True
-        
-
-                
-            
-
-        
-
-
-
-            
+                q.append(node.right)
+            if node.left:
+                q.append(node.left)
+        # print(traverse)
+        return  len(set(traverse)) == 1
