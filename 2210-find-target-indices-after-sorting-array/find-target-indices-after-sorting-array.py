@@ -1,9 +1,13 @@
 class Solution:
     def targetIndices(self, nums: List[int], target: int) -> List[int]:
-        n = len(nums)
-        nums.sort()
-        ans=[]
-        for i in range(n):
-            if nums[i] == target:
-                ans.append(i)
-        return ans
+        lessThan = 0
+        strictlyLess = 0
+
+        for n in nums:
+            if n <= target:
+                lessThan += 1
+            if n < target:
+                strictlyLess += 1
+
+        return list(range(strictlyLess,lessThan))
+        
