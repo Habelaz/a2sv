@@ -4,14 +4,11 @@ class Solution:
         for op in operations:
             if op == '+':
                 stack.append(stack[-1]+stack[-2])
-            if op == 'C':
+            elif op == 'C':
                 stack.pop()
-            if op == 'D':
+            elif op == 'D':
                 stack.append(2*stack[-1])
-            if op.isdigit():
+            else:
                 stack.append(int(op))
-            if op[0] == "-":
-                op = op[1:]
-                stack.append(-1*int(op))
-                
+
         return sum(stack)
