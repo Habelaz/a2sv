@@ -1,15 +1,12 @@
 class Solution:
     def countConsistentStrings(self, allowed: str, words: list[str]) -> int:
-        arr = [0] * 26
-        for c in allowed:
-            arr[ord(c) - ord('a')] = 1
-        
-        count = 0
+        allowed = list(allowed)
+        ans = 0 
         for word in words:
-            is_allowed = 1
-            for char in word:
-                if arr[ord(char) - ord('a')] == 0:
-                    is_allowed = 0
+            is_allowed = True
+            for c in word:
+                if c not in  allowed:
+                    is_allowed = False
                     break
-            count += is_allowed
-        return count
+            ans += 1 if is_allowed else 0
+        return ans
