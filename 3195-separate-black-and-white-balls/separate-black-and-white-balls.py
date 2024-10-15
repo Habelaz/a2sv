@@ -1,16 +1,12 @@
 class Solution:
     def minimumSteps(self, s: str) -> int:
-        blacks = 0
+        ones = 0
         ans = 0
 
-        for i in s:
-            if i == '1':
-                blacks += 1
+        for num in s:
+            if num == "1":
+                ones += 1
             else:
-                ans += blacks
+                ans += ones
 
-        return ans
-
-            
-
-                
+        return ans        
