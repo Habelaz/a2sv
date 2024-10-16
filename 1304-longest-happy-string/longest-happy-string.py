@@ -2,13 +2,12 @@ class Solution:
     def longestDiverseString(self, a: int, b: int, c: int) -> str:
         heap = []
         if a > 0:
-            heap.append([-a,"a"])
+            heapq.heappush(heap,[-a,"a"])
         if b > 0:
-            heap.append([-b,"b"])
+            heapq.heappush(heap,[-b,"b"])
         if c > 0:
-            heap.append([-c,"c"])
+            heapq.heappush(heap,[-c,"c"])
 
-        heapq.heapify(heap)
         ans = ""
 
         while heap:
