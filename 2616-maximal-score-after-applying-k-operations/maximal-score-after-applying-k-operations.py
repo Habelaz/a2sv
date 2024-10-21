@@ -7,7 +7,5 @@ class Solution:
             num = heapq.heappop(nums)
             ans += -num
             heapq.heappush(nums,-ceil(-num/3))
-            # print(nums,-num)
-            
         
         return ans
