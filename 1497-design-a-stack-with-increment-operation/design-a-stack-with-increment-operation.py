@@ -16,7 +16,6 @@ class CustomStack:
         return -1
 
     def increment(self, k: int, val: int) -> None:
-        print(self.stack,self.count)
         if self.count < k:
             for i in range(self.count):
                 self.stack[i] += val    
