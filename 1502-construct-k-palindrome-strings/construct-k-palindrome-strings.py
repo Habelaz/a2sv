@@ -9,9 +9,6 @@ class Solution:
             if val % 2 != 0:
                 odds += 1
 
-        if odds > k:
-            return False
-        else:
-            return True
+        return True if odds <= k else False
 
         
