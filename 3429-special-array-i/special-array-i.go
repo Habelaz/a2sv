@@ -1,6 +1,9 @@
 func isArraySpecial(nums []int) bool {
-    for i := 1; i < len(nums); i++ {
-        if nums[i-1] % 2 == nums[i] % 2{
+    for i, v := range nums {
+        if i == 0 {
+            continue
+        }
+        if v % 2 == nums[i - 1] % 2 {
             return false
         }
     }
