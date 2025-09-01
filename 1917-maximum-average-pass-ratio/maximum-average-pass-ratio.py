@@ -10,7 +10,8 @@ class Solution:
             heap.append((-ratio_diff,p,t))
 
         heapq.heapify(heap)
-        
+        if heap[0][0] == 0:
+            return 1
         for i in range(extraStudents):
             ratio_diff,p,t = heapq.heappop(heap)
             heapq.heappush(heap,(-helper(p+1,t+1),p+1,t+1))
